@@ -1,0 +1,92 @@
+<style>
+#aboutImageGallery {
+    position: relative;
+    text-align: center;
+}
+
+#aboutImageGallery .gallery-controls {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+#aboutImageGallery button {
+    background-color: transparent;
+    border: none;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 2rem;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+#aboutImageGallery button:hover {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+#aboutImage {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+}
+
+#aboutImageCaption {
+    font-style: italic;
+    margin-bottom: 20px;
+}
+</style>
+
+<div id="aboutImageGallery">
+    <div class="gallery-controls">
+        <button class="prev-button" id="prevButton">&#8592;</button>
+        <button class="next-button" id="nextButton">&#8594;</button>
+    </div>
+    <img id="aboutImage" src="/images/about/geophones.jpeg" alt="About">
+    <div id="aboutImageCaption">Setting up geophones</div>
+</div>
+
+<script>
+    const images = [
+        { src: "/images/about/geophones.jpeg", caption: "Setting up geophones" },
+        { src: "/images/about/IMG_1009.JPG", caption: "Field work" },
+        { src: "/images/about/vibe_truck.jpeg", caption: "Vibroseis truck" }
+    ];
+
+    let currentImageIndex = 0;
+
+    const imageElement = document.getElementById('aboutImage');
+    const captionElement = document.getElementById('aboutImageCaption');
+    const prevButton = document.getElementById('prevButton');
+    const nextButton = document.getElementById('nextButton');
+
+    function showImage(index) {
+        imageElement.src = images[index].src;
+        captionElement.textContent = images[index].caption;
+        currentImageIndex = index;
+    }
+
+    function showPreviousImage() {
+        let newIndex = currentImageIndex - 1;
+        if (newIndex < 0) {
+            newIndex = images.length - 1;
+        }
+        showImage(newIndex);
+    }
+
+    function showNextImage() {
+        let newIndex = currentImageIndex + 1;
+        if (newIndex >= images.length) {
+            newIndex = 0;
+        }
+        showImage(newIndex);
+    }
+
+    prevButton.addEventListener('click', showPreviousImage);
+    nextButton.addEventListener('click', showNextImage);
+</script>

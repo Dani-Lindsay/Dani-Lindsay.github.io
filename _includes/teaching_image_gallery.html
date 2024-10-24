@@ -1,0 +1,94 @@
+<style>
+#teachingImageGallery {
+    position: relative;
+    text-align: center;
+}
+
+#teachingImageGallery .gallery-controls {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+#teachingImageGallery button {
+    background-color: transparent;
+    border: none;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 2rem;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+#teachingImageGallery button:hover {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+#teachingImage {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+}
+
+#teachingImageCaption {
+    font-style: italic;
+    margin-bottom: 20px;
+}
+</style>
+
+<div id="teachingImageGallery">
+    <div class="gallery-controls">
+        <button class="prev-button" id="prevButton">&#8592;</button>
+        <button class="next-button" id="nextButton">&#8594;</button>
+    </div>
+    <img id="teachingImage" src="/images/teaching/IMG_0970.JPG" alt="Teaching">
+    <div id="teachingImageCaption">Field Training Session</div>
+</div>
+
+<script>
+    const images = [
+        { src: "/images/teaching/IMG_0970.JPG", caption: "Field Training Session" },
+        { src: "/images/teaching/IMG_1049.JPG", caption: "Teaching students in the field" },
+        { src: "/images/teaching/IMG_1070.JPG", caption: "Field Data Collection" },
+        { src: "/images/teaching/IMG_5255.jpeg", caption: "Teaching and field work" },
+        { src: "/images/teaching/IMG_5258.jpeg", caption: "Teaching and field work" }
+    ];
+
+    let currentImageIndex = 0;
+
+    const imageElement = document.getElementById('teachingImage');
+    const captionElement = document.getElementById('teachingImageCaption');
+    const prevButton = document.getElementById('prevButton');
+    const nextButton = document.getElementById('nextButton');
+
+    function showImage(index) {
+        imageElement.src = images[index].src;
+        captionElement.textContent = images[index].caption;
+        currentImageIndex = index;
+    }
+
+    function showPreviousImage() {
+        let newIndex = currentImageIndex - 1;
+        if (newIndex < 0) {
+            newIndex = images.length - 1;
+        }
+        showImage(newIndex);
+    }
+
+    function showNextImage() {
+        let newIndex = currentImageIndex + 1;
+        if (newIndex >= images.length) {
+            newIndex = 0;
+        }
+        showImage(newIndex);
+    }
+
+    prevButton.addEventListener('click', showPreviousImage);
+    nextButton.addEventListener('click', showNextImage);
+</script>

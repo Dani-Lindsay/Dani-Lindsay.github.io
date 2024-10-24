@@ -1,41 +1,63 @@
----
----
+@charset "utf-8";
 
-/*
- *    Minimal Mistakes Jekyll Theme
- *
- *  - Michael Rose
- *  - mademistakes.com
- *  - https://twitter.com/mmistakes
- *
-*/
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials
 
-@import "vendor/breakpoint/breakpoint"; // media query mixins
-@import "variables";
-@import "mixins";
-@import "vendor/susy/susy";
+/* sidebar */
+.sidebar {
+  text-align: center;
+}
 
-@import "reset";
-@import "base";
+.author__avatar {
+  display: inline-block;
+  margin-bottom: 1em;
 
-@import "utilities";
-@import "animations";
-@import "tables";
-@import "buttons";
-@import "notices";
-@import "masthead";
-@import "navigation";
-@import "footer";
-@import "syntax";
+  img {
+    width: 150px;
+    height: 150px;
+  }
+}
 
-@import "forms";
+.author__content {
+  margin-bottom: 1em;
+}
 
-@import "page";
-@import "archive";
-@import "sidebar";
+.author__name {
+  margin: 0;
+  font-size: 1.563em;
+}
 
-@import "vendor/font-awesome/fontawesome";
-@import "vendor/font-awesome/solid";
-@import "vendor/font-awesome/brands";
-@import "vendor/magnific-popup/magnific-popup";
-@import "print";
+.author__bio {
+  margin: 0;
+  font-size: 0.75em;
+}
+
+.author__urls-wrapper {
+  font-size: 0.6875em;
+}
+
+.author__urls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    margin-bottom: 0.5em;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .label {
+    margin-right: 0.5em;
+  }
+}

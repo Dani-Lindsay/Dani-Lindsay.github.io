@@ -1,0 +1,43 @@
+<style>
+.pdf-container {
+    position: relative;
+    width: 52.5vw !important;
+    margin-left: 0vw !important;
+    text-align: center;
+    padding: 0 !important;
+}
+
+.pdf-viewer {
+    width: 100% !important;
+    height: 800px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.download-button {
+    display: inline-block;
+    background-color: #008CBA;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.download-button:hover {
+    background-color: #005f79;
+}
+
+@media screen and (max-width: 1024px) {
+    .pdf-container {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+}
+</style>
+
+<div class="pdf-container">
+    <a href="/files/CV Danielle Lindsay.pdf" class="download-button" download>Download CV</a>
+    <iframe src="/files/CV Danielle Lindsay.pdf#toolbar=0&navpanes=0" class="pdf-viewer"></iframe>
+</div>

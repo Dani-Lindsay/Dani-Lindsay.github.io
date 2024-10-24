@@ -1,0 +1,83 @@
+<style>
+#turkeyImageGallery {
+  text-align: center;
+}
+
+#turkeyImageGallery button {
+  background-color: #008CBA;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#turkeyImageGallery button:hover {
+  background-color: #005f79;
+}
+
+#turkeyImage {
+  max-width: 100%;
+  height: auto;
+  margin: 20px 0;
+}
+
+#turkeyImageCaption {
+  font-style: italic;
+  margin-bottom: 20px;
+}
+</style>
+
+<div id="turkeyImageGallery">
+  <div>
+    <button id="prevButton">Previous</button>
+    <button id="nextButton">Next</button>
+  </div>
+  <img id="turkeyImage" src="/images/research/turkey_1.png" alt="Turkey InSAR Results">
+  <div id="turkeyImageCaption">Figure 1: Praesent elementum facilisis leo vel fringilla est ullamcorper eget.</div>
+</div>
+
+<script>
+  const images = [
+    { src: "/images/research/turkey_1.png", caption: "Figure 1: Praesent elementum facilisis leo vel fringilla est ullamcorper eget." },
+    { src: "/images/research/turkey_2.png", caption: "Figure 2: Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim." },
+    { src: "/images/research/turkey_3.png", caption: "Figure 3: Curabitur aliquet quam id dui posuere blandit. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem." }
+  ];
+
+  let currentImageIndex = 0;
+
+  const imageElement = document.getElementById('turkeyImage');
+  const captionElement = document.getElementById('turkeyImageCaption');
+  const prevButton = document.getElementById('prevButton');
+  const nextButton = document.getElementById('nextButton');
+
+  function showImage(index) {
+    imageElement.src = images[index].src;
+    captionElement.textContent = images[index].caption;
+    currentImageIndex = index;
+  }
+
+  function showPreviousImage() {
+    let newIndex = currentImageIndex - 1;
+    if (newIndex < 0) {
+      newIndex = images.length - 1;
+    }
+    showImage(newIndex);
+  }
+
+  function showNextImage() {
+    let newIndex = currentImageIndex + 1;
+    if (newIndex >= images.length) {
+      newIndex = 0;
+    }
+    showImage(newIndex);
+  }
+
+  prevButton.addEventListener('click', showPreviousImage);
+  nextButton.addEventListener('click', showNextImage);
+</script>

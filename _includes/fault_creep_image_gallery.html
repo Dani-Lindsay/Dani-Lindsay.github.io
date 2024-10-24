@@ -1,0 +1,85 @@
+<style>
+#faultCreepImageGallery {
+  text-align: center;
+}
+
+#faultCreepImageGallery button {
+  background-color: #008CBA;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#faultCreepImageGallery button:hover {
+  background-color: #005f79;
+}
+
+#faultCreepImage {
+  max-width: 100%;
+  height: auto;
+  margin: 20px 0;
+}
+
+#faultCreepImageCaption {
+  font-style: italic;
+  margin-bottom: 20px;
+}
+</style>
+
+<div id="faultCreepImageGallery">
+  <div>
+    <button id="prevButton">Previous</button>
+    <button id="nextButton">Next</button>
+  </div>
+  <img id="faultCreepImage" src="/images/research/faultcreep_1.png" alt="Fault Creep InSAR Results">
+  <div id="faultCreepImageCaption">Figure 1: Donec euismod, nisl eget consectetur sagittis, nisl nunc egestas nisi, eu aliquam nisl nisi eu nisi.</div>
+</div>
+
+<script>
+  const images = [
+    { src: "/images/research/faultcreep_1.png", caption: "Figure 1: Donec euismod, nisl eget consectetur sagittis, nisl nunc egestas nisi, eu aliquam nisl nisi eu nisi." },
+    { src: "/images/research/faultcreep_2.png", caption: "Figure 2: Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula." },
+    { src: "/images/research/faultcreep_3.png", caption: "Figure 3: Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim." },
+    { src: "/images/research/faultcreep_4.png", caption: "Figure 4: Phasellus molestie magna non est bibendum non venenatis nisl tempor." },
+    { src: "/images/research/faultcreep_5.png", caption: "Figure 5: Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere." }
+  ];
+
+  let currentImageIndex = 0;
+
+  const imageElement = document.getElementById('faultCreepImage');
+  const captionElement = document.getElementById('faultCreepImageCaption');
+  const prevButton = document.getElementById('prevButton');
+  const nextButton = document.getElementById('nextButton');
+
+  function showImage(index) {
+    imageElement.src = images[index].src;
+    captionElement.textContent = images[index].caption;
+    currentImageIndex = index;
+  }
+
+  function showPreviousImage() {
+    let newIndex = currentImageIndex - 1;
+    if (newIndex < 0) {
+      newIndex = images.length - 1;
+    }
+    showImage(newIndex);
+  }
+
+  function showNextImage() {
+    let newIndex = currentImageIndex + 1;
+    if (newIndex >= images.length) {
+      newIndex = 0;
+    }
+    showImage(newIndex);
+  }
+
+  prevButton.addEventListener('click', showPreviousImage);
+  nextButton.addEventListener('click', showNextImage);
+</script>

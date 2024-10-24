@@ -1,0 +1,115 @@
+<style>
+#landslidesImageGallery {
+    position: relative;
+    text-align: center;
+}
+
+#landslidesImageGallery .gallery-controls {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+#landslidesImageGallery button {
+    background-color: transparent;
+    border: none;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 2rem;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+#landslidesImageGallery button:hover {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+#landslidesImage, #landslidesVideo {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+    display: none;
+}
+
+#landslidesImageCaption {
+    font-style: italic;
+    margin-bottom: 20px;
+}
+</style>
+
+<div id="landslidesImageGallery">
+    <div class="gallery-controls">
+        <button class="prev-button" id="prevButton">&#8592;</button>
+        <button class="next-button" id="nextButton">&#8594;</button>
+    </div>
+    <img id="landslidesImage" src="/images/research/landslides_1.png" alt="Landslide InSAR Results">
+    <video id="landslidesVideo" controls>
+        <source src="/files/landslide_talk.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div id="landslidesImageCaption">Figure 1: Fusce venenatis orci at quam convallis, non ultrices odio bibendum. Aenean sed nisi sed magna lacinia tincidunt.</div>
+</div>
+
+<script>
+    const media = [
+        { type: 'image', src: "/images/research/landslides_1.png", caption: "Figure 1: Fusce venenatis orci at quam convallis, non ultrices odio bibendum. Aenean sed nisi sed magna lacinia tincidunt." },
+        { type: 'image', src: "/images/research/landslides_2.png", caption: "Figure 2: Phasellus quis tellus fringilla, feugiat lectus ac, imperdiet neque. Mauris facilisis purus vitae sem blandit fermentum." },
+        { type: 'image', src: "/images/research/landslides_3.png", caption: "Figure 3: Etiam luctus urna magna, a ultrices enim vulputate quis. Nulla maximus justo eu velit elementum, at tincidunt urna mollis." },
+        { type: 'video', src: "/files/landslide_talk.mp4", caption: "Landslide Research Presentation" }
+    ];
+
+    let currentIndex = 0;
+
+    const imageElement = document.getElementById('landslidesImage');
+    const videoElement = document.getElementById('landslidesVideo');
+    const captionElement = document.getElementById('landslidesImageCaption');
+    const prevButton = document.getElementById('prevButton');
+    const nextButton = document.getElementById('nextButton');
+
+    function showMedia(index) {
+        const item = media[index];
+        imageElement.style.display = 'none';
+        videoElement.style.display = 'none';
+        
+        if (item.type === 'image') {
+            imageElement.src = item.src;
+            imageElement.style.display = 'inline-block';
+            if (videoElement.played) {
+                videoElement.pause();
+            }
+        } else {
+            videoElement.style.display = 'inline-block';
+        }
+        
+        captionElement.textContent = item.caption;
+        currentIndex = index;
+    }
+
+    function showPreviousMedia() {
+        let newIndex = currentIndex - 1;
+        if (newIndex < 0) {
+            newIndex = media.length - 1;
+        }
+        showMedia(newIndex);
+    }
+
+    function showNextMedia() {
+        let newIndex = currentIndex + 1;
+        if (newIndex >= media.length) {
+            newIndex = 0;
+        }
+        showMedia(newIndex);
+    }
+
+    prevButton.addEventListener('click', showPreviousMedia);
+    nextButton.addEventListener('click', showNextMedia);
+
+    // Show initial media
+    showMedia(0);
+</script>
