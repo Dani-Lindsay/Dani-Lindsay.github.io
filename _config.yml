@@ -4,8 +4,8 @@ title                    : "Danielle Lindsay"
 title_separator          : "-"
 name                     : &name "Danielle Lindsay"
 description              : &description "Academic Profile"
-url                      : https://dlindsay.github.io
-baseurl                  : ""
+url                      : "https://dani-lindsay.github.io"
+baseurl                  : "/dlindsay.github.io"
 repository               : "Dani-Lindsay/dlindsay.github.io"
 
 # Theme Settings
