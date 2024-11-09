@@ -5,8 +5,8 @@ title_separator          : "-"
 name                     : &name "Danielle Lindsay"
 description              : &description "Academic Profile"
 url                      : "https://dani-lindsay.github.io"
-baseurl                  : "/dlindsay.github.io"
-repository               : "Dani-Lindsay/dlindsay.github.io"
+baseurl                  : ""
+repository               : "Dani-Lindsay/Dani-Lindsay.github.io"
 
 # Theme Settings
 remote_theme             : "mmistakes/minimal-mistakes@4.24.0"
