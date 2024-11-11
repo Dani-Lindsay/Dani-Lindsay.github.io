@@ -10,7 +10,7 @@ My research investigates multi-scale surface deformation across Northern Califor
 - [ALOS-2 InSAR Time Series Analysis](/research/alos2/)
 - [Landslide Monitoring with InSAR](/research/landslides/) 
 - [Fault Creep in California](/research/fault_creep/)
-- [North Anatolian Fault, Turkey](/research/turkey/)
+<!-- - [North Anatolian Fault, Turkey](/research/turkey/) -->
 <!-- - [Crandall Canyon Mine Collapse](/research/crandall/) -->
 <!-- - [Slow Slip Events Near Ferndale, CA](/research/ferndale/) -->
 <!-- - [Fiordland, New Zealand Slow Slip Events](/research/fiordland/) -->
