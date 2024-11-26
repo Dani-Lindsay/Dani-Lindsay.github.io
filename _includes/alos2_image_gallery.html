@@ -82,17 +82,16 @@
   <div class="nav-zone nav-zone-right">
     <button id="nextButton" class="nav-button">→</button>
   </div>
-  <img id="alos2Image" src="/images/research/alos2_1.png" alt="ALOS-2 InSAR Results">
-  <div id="alos2ImageCaption">Figure 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in velit dolor. Aliquam erat volutpat.</div>
+  <img id="alos2Image" src="/images/research/velocity_fields.png" alt="ALOS-2 InSAR Results">
+  <div id="alos2ImageCaption">Line-of-sight (LOS) velocity maps for tracks a) 169, b) 170, and c) 068 with reference pixel location (black square). Negative LOS represents a movement away from the SAR platform, as seen in subsidence in the Central Valley.</div>
 </div>
 
 <script>
   const images = [
-    { src: "/images/research/alos2_1.png", caption: "Figure 1: Test ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in velit dolor. Aliquam erat volutpat." },
-    { src: "/images/research/alos2_2.png", caption: "Figure 2: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam." },
-    { src: "/images/research/alos2_3.png", caption: "Figure 3: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
-    { src: "/images/research/alos2_4.png", caption: "Figure 4: Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },
-    { src: "/images/research/alos2_5.png", caption: "Figure 5: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium." }
+    { src: "/images/research/velocity_fields.png", caption: "Line-of-sight (LOS) velocity maps for tracks a) 169, b) 170, and c) 068 with reference pixel location (black square). Negative LOS represents a movement away from the SAR platform, as seen in subsidence in the Central Valley." },  
+    { src: "/images/research/velocity_fields_residuals.png", caption: "Scatter plots of GNSS vs InSAR for each track (d, e, f) with a grey line showing 1:1 agreement, dashed is the regression line, and each point is colored by distance from the reference station CASR. (g, h, i) histograms of residuals with proportions of residuals within +/- 2 mm/yr highlighted" },
+    { src: "/images/research/alos2_3.png", caption: "Velocity maps for ALOS-2 (a) and Sentiel-1 (b) for July 2021 - March 2024. East-west (c) and north-south (d) velocity field cross-sections for each dataset. Time series comparison with GNSS east, north, and up (e) or just InSAR projected to Up (f)." },
+    { src: "/images/research/alos2_5.png", caption: "(a) Vertical velocity field, insert shows the location of Medicine Lake volcano (b,c). Cross-section through vertical velocity field (d) and east-west (e) directions." },
   ];
 
   let currentImageIndex = 0;
